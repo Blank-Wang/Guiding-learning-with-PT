@@ -1,0 +1,3 @@
+0.0	8.836	Vacuum_cleaner
+8.836	9.356	Speech
+9.619	10.0	Speech

@@ -1,0 +1,4 @@
+0.000	0.424	Speech
+1.138	2.945	Speech
+3.395	4.752	Speech
+5.242	10.000	Blender

@@ -1,0 +1,2 @@
+1.3159999999999998	7.691	Electric_shaver_toothbrush
+8.777999999999999	9.242	Speech

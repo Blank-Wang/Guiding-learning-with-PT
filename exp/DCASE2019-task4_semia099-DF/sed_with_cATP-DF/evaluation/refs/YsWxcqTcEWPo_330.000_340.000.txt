@@ -1,0 +1,5 @@
+0.390	0.920	Speech
+1.396	2.409	Speech
+6.181	7.313	Speech
+6.552	7.373	Alarm_bell_ringing
+7.591	10.000	Speech

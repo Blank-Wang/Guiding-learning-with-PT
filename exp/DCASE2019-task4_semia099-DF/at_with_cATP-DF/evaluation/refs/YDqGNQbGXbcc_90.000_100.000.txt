@@ -1,0 +1,4 @@
+0.819	1.069	Running_water
+2.763	3.013	Running_water
+4.847	5.097	Running_water
+5.550	10.000	Alarm_bell_ringing

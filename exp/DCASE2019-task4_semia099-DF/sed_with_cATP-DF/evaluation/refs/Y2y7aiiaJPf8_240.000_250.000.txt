@@ -1,0 +1,2 @@
+0.000	7.895	Running_water
+0.000	8.406	Dishes

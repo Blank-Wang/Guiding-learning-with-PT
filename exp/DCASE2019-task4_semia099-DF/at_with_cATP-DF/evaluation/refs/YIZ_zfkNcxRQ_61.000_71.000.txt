@@ -1,0 +1,5 @@
+0.000	7.906	Vacuum_cleaner
+0.151	1.312	Speech
+1.602	3.379	Speech
+3.646	4.528	Speech
+7.906	9.845	Blender

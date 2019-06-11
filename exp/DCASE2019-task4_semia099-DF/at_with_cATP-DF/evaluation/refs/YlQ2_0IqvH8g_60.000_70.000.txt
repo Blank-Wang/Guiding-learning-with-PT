@@ -1,0 +1,7 @@
+0.742	0.992	Alarm_bell_ringing
+1.618	1.868	Alarm_bell_ringing
+2.101	2.910	Speech
+2.640	2.890	Alarm_bell_ringing
+3.652	3.921	Alarm_bell_ringing
+5.787	6.326	Speech
+9.326	9.697	Speech

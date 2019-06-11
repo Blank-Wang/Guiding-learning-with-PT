@@ -1,0 +1,2 @@
+0.000	5.506	Speech
+4.844	9.682	Alarm_bell_ringing

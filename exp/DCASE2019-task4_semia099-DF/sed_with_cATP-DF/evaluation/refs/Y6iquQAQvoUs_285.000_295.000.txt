@@ -1,0 +1,5 @@
+0.000	6.122	Speech
+6.419	6.995	Speech
+7.150	7.400	Dishes
+7.352	8.112	Speech
+8.391	9.477	Speech

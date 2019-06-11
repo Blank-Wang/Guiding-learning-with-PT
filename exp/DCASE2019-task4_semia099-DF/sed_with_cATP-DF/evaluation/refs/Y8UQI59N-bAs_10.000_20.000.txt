@@ -1,0 +1,4 @@
+0.000	1.688	Alarm_bell_ringing
+2.541	4.858	Alarm_bell_ringing
+5.500	7.776	Alarm_bell_ringing
+8.451	10.000	Alarm_bell_ringing

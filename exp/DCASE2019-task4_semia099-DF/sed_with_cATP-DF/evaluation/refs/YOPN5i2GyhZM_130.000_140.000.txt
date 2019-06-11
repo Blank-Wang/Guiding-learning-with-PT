@@ -1,0 +1,7 @@
+0.000	10.000	Frying
+0.000	0.418	Speech
+2.090	3.286	Speech
+3.570	6.583	Speech
+5.886	6.693	Dishes
+7.030	8.551	Speech
+8.882	10.000	Speech

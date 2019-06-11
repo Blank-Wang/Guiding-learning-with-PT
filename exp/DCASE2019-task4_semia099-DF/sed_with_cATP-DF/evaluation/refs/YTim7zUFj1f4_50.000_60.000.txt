@@ -1,0 +1,11 @@
+0.000	3.616	Running_water
+0.000	1.532	Speech
+0.849	1.657	Dog
+1.995	2.363	Dishes
+2.791	3.088	Dishes
+2.892	4.388	Speech
+4.276	10.000	Running_water
+4.685	5.166	Dishes
+5.677	5.944	Dishes
+6.591	7.144	Speech
+7.749	9.673	Speech

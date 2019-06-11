@@ -5,8 +5,53 @@ import configparser
 
 class data_loader(object):
 	def __init__(self,conf_dir):
+		""""
+		Load the data stream for training.
+		Count relevant parameters on the data set for DF and GL.
+		Args:
+			conf_dir:	the path of config dir   
+		Attributes:
+			conf_dir
+			feature_dir
+			label_dir
+			train_lst
+			vali_lst
+			test_lst
+			vali_csv
+			win_len_csv
+			LEN
+			DIM
+			CLASS
+			batch_size
+			events
+			dinsentangle_n
+			dinsentangle_m
+			ratio_for_win_len
+			ep_per_epochs
+		Interface:
+			init_data_conf
+			read_lst
+			get_train
+			get_vali
+			get_test
+			count_disentangle
+			count_win_len_per_class
+			set_semi_parameter
+			set_ep_per_epochs
+			generator_train
+			generator_vali
+			generator_test
+			generator_weak
+			generator_unlabel
+			generator_all
+			generator
+		Return:
+			self	:a data_loader object
+
+		"""
 		self.conf_dir=conf_dir
 		self.init_data_conf()
+		return self
 
 	def init_data_conf(self):
 		conf_dir=self.conf_dir
@@ -45,7 +90,7 @@ class data_loader(object):
 		self.DIM=int(parameter_cfg['DIM'])
 		self.batch_size=int(parameter_cfg['batch_size'])
 		self.dinsentangle_n=int(parameter_cfg['dinsentangle_n'])
-		self.dinsentangle_a=float(parameter_cfg['dinsentangle_a'])
+		self.dinsentangle_m=float(parameter_cfg['dinsentangle_m'])
 		self.ratio_for_win_len=float(parameter_cfg['ratio_for_win_len'])
 
 		assert'events' in config.sections()
@@ -79,7 +124,7 @@ class data_loader(object):
 
 	def count_disentangle(self):
 		n=self.dinsentangle_n
-		a=self.dinsentangle_a
+		m=self.dinsentangle_m
 		lst=self.get_train()
 		label_dir=self.label_dir
 		desentangle=np.zeros([self.CLASS])
@@ -89,7 +134,7 @@ class data_loader(object):
 				label=np.load(path)
 				if np.sum(label)==n:
 					desentangle+=label
-		desentangle=desentangle/np.max(desentangle)*(1-a)+a
+		desentangle=desentangle/np.max(desentangle)*(1-m)+m
 		return desentangle	
 
 	def count_win_len_per_class(self,top_len):

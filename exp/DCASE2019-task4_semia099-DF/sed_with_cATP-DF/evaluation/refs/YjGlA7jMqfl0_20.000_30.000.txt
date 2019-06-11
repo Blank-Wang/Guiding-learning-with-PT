@@ -1,0 +1,6 @@
+0.000	0.341	Running_water
+0.668	1.173	Running_water
+1.570	1.930	Running_water
+2.340	2.590	Running_water
+3.115	3.531	Running_water
+4.067	8.507	Running_water

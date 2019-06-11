@@ -1,0 +1,2 @@
+0.621	9.474	Running_water
+7.605	8.870	Speech

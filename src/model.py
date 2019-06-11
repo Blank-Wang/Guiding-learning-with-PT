@@ -70,16 +70,17 @@ class sumLayer(Layer):
 
 class attend_cnn(object):
 
-	def __init__(self,conf_dir,model_name,task_name):
+	def __init__(self,conf_dir,model_name,task_name,LEN,DIM,CLASS):
 		self.conf_dir=conf_dir
 		self.model_name=model_name
 		self.task_name=task_name
+		self.LEN=LEN
+		self.DIM=DIM
+		self.CLASS=CLASS
 		self.init_model_conf()
 
 	def set_DFs(self,dfs):
 		self.dfs=dfs
-	def set_CLASS(self,class_num):
-		self.CLASS=class_num
 
 	
 	def init_model_conf(self):
@@ -93,9 +94,6 @@ class attend_cnn(object):
 		assert model_name in config.sections()
 		model_conf=config[model_name]
 
-		self.model_mode=model_conf['model_mode']
-		self.LEN=int(model_conf['LEN'])
-		self.DIM=int(model_conf['DIM'])
 		self.cnn_layer=int(model_conf['cnn_layer'])
 		filters=model_conf['filters'].split(',')
 		self.filters=[int(c) for c in filters]

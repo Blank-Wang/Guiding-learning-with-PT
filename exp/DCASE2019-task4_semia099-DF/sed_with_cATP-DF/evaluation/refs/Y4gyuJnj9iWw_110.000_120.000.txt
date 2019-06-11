@@ -1,0 +1,4 @@
+0.0	10.0	Running_water
+5.452000000000001	6.71	Speech
+7.18	8.126	Speech
+9.442	10.0	Speech

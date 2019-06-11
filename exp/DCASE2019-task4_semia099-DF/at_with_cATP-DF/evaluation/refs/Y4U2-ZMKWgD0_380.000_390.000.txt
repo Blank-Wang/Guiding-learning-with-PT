@@ -1,0 +1,4 @@
+0.0	1.567	Speech
+1.955	3.565	Speech
+4.1	10.0	Running_water
+8.441	9.927	Speech

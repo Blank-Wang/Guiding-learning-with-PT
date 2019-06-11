@@ -172,7 +172,8 @@ class trainer(object):
 		data_loader=self.init_data()
 		LOG.info('done.')
 		LOG.info('init model config...')
-		model_struct=self.init_model()
+		model_struct=self.init_model(
+			data_loader.LEN,data_loader.DIM,data_loader.CLASS)
 		LOG.info('done.')
 		LOG.info('init train config...')
 		self.init_train_conf()
@@ -190,7 +191,6 @@ class trainer(object):
 		utils_obj.set_win_lens(win_lens)
 		data_loader.set_semi_parameter(self.exponent,self.start_epoch)
 		data_loader.set_ep_per_epochs(self.ep_per_epochs)
-		model_struct.set_CLASS(data_loader.CLASS)
 
 	def init_train_conf(self):
 		conf_dir=self.conf_dir
@@ -215,11 +215,12 @@ class trainer(object):
 		self.ave=vali_conf['ave']
 		return self
 
-	def init_model(self):
+	def init_model(self,LEN,DIM,CLASS):
 		conf_dir=self.conf_dir
 		model_name=self.model_name
 		task_name=self.task_name
-		self.model_struct=md.attend_cnn(conf_dir,model_name,task_name)
+		self.model_struct=md.attend_cnn(conf_dir,model_name,task_name,
+			LEN,DIM,CLASS)
 		return self.model_struct
 
 	def init_data(self):

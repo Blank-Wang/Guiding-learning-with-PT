@@ -1,0 +1,4 @@
+0.580	1.363	Running_water
+2.195	4.037	Running_water
+5.867	6.117	Dog
+7.407	7.657	Dog

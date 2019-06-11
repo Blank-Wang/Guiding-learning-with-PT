@@ -1,0 +1,4 @@
+0.000	10.000	Vacuum_cleaner
+2.543	3.634	Speech
+6.327	8.893	Speech
+9.346	10.000	Speech

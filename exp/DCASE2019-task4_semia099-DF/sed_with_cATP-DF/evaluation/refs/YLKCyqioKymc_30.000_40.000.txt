@@ -1,0 +1,4 @@
+0.974	1.485	Dishes
+2.227	3.343	Dishes
+5.178	5.606	Dishes
+6.407	8.076	Alarm_bell_ringing

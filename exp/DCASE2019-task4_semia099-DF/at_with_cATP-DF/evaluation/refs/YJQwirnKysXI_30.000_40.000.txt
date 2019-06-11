@@ -1,0 +1,11 @@
+0.258	1.202	Speech
+1.393	2.528	Speech
+2.854	3.258	Speech
+3.494	3.831	Speech
+4.528	4.933	Speech
+5.438	5.966	Speech
+6.629	7.281	Speech
+7.989	8.483	Speech
+8.483	9.169	Dog
+9.258	9.508	Speech
+9.551	9.843	Dog

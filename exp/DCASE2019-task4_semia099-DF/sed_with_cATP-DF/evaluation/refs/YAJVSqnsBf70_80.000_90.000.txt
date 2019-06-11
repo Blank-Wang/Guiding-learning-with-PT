@@ -1,0 +1,5 @@
+2.787	3.416	Dishes
+5.202	5.685	Dishes
+6.921	7.551	Dishes
+8.843	9.135	Dishes
+9.483	9.764	Dishes

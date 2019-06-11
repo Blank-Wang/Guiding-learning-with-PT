@@ -1,0 +1,2 @@
+0.0	0.439	Vacuum_cleaner
+3.824	9.989	Vacuum_cleaner

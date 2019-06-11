@@ -1,0 +1,4 @@
+0.467	0.7170000000000001	Alarm_bell_ringing
+1.919	10.0	Running_water
+5.417999999999998	5.863	Speech
+7.79	10.0	Speech

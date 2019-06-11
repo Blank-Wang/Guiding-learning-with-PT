@@ -1,0 +1,5 @@
+1.219	3.576	Speech
+5.642	6.258	Speech
+6.641	7.314	Speech
+7.605	8.069	Speech
+8.382	9.868	Speech

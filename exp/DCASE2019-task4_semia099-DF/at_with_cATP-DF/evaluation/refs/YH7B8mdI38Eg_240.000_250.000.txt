@@ -1,0 +1,8 @@
+0.000	10.000	Frying
+0.688	0.938	Dishes
+1.238	1.488	Dishes
+1.714	1.964	Dishes
+2.369	3.235	Dishes
+7.081	7.331	Dishes
+7.551	7.801	Dishes
+8.081	8.974	Dishes

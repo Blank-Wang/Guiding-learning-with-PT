@@ -1,0 +1,2 @@
+4.101	7.742	Alarm_bell_ringing
+8.011	8.640	Speech

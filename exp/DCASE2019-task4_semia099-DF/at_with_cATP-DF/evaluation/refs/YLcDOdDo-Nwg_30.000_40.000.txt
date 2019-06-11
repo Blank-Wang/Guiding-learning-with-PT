@@ -1,0 +1,4 @@
+3.338	3.588	Alarm_bell_ringing
+4.989	5.239	Alarm_bell_ringing
+6.562	6.812	Alarm_bell_ringing
+7.596	7.846	Alarm_bell_ringing

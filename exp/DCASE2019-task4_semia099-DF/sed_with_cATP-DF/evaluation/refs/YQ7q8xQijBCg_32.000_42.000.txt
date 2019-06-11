@@ -1,0 +1,12 @@
+0.045	0.295	Dishes
+0.978	1.573	Dishes
+2.079	2.337	Dishes
+2.584	2.834	Dishes
+2.888	3.494	Speech
+3.494	4.034	Dishes
+4.978	5.360	Dishes
+5.404	6.483	Speech
+6.517	6.767	Dishes
+7.056	7.989	Dishes
+8.888	9.258	Dishes
+9.742	9.992	Dishes

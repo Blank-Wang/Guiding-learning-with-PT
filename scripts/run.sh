@@ -1,1 +1,2 @@
-CUDA_VISIBLE_DEVICES=0 python main.py -t DCASE2019-task4_semia099-DF -s sed_with_cATP-DF -a at_with_cATP-DF -md train
+#example script for training
+CUDA_VISIBLE_DEVICES=1 python main.py -n DCASE2019-task4_semia099-DF -s sed_with_cATP-DF -t at_with_cATP-DF -md train -u true -g true

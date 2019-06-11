@@ -1,0 +1,4 @@
+0.615	3.832	Speech
+2.290	2.627	Dishes
+4.315	7.889	Speech
+9.338	10.000	Blender

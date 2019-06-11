@@ -1,0 +1,7 @@
+0.000	1.021	Running_water
+1.122	3.147	Speech
+3.343	3.872	Dishes
+4.317	5.523	Running_water
+5.416	6.675	Dishes
+7.809	8.616	Dishes
+8.913	9.881	Dishes

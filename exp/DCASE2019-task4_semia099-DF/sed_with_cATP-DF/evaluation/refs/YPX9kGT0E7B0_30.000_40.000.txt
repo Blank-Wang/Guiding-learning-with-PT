@@ -1,0 +1,6 @@
+0.000	1.080	Alarm_bell_ringing
+1.080	1.405	Dog
+1.556	2.345	Speech
+2.519	3.622	Speech
+5.306	5.956	Dog
+7.976	8.766	Speech

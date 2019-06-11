@@ -1,0 +1,6 @@
+0.000	0.841	Running_water
+2.574	3.309	Dishes
+4.884	5.248	Dishes
+5.711	5.961	Dishes
+6.896	7.988	Dishes
+9.060	10.000	Running_water

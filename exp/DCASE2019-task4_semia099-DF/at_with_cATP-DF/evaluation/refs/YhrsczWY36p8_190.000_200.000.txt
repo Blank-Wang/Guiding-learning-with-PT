@@ -1,0 +1,3 @@
+0.0	10.0	Electric_shaver_toothbrush
+0.0	2.714	Speech
+5.435	6.692	Speech

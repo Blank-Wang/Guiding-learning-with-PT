@@ -33,4 +33,4 @@ def create_logger(logger_name, log_file):
     return logger
 
 
-LOG = create_logger("disentangled feature", "disentangled_feature.log")
+LOG = create_logger("GL", "GL.log")

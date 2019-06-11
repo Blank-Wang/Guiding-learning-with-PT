@@ -1,0 +1,4 @@
+0.000	4.911	Frying
+1.434	1.684	Dishes
+2.136	2.386	Dishes
+4.911	10.000	Blender

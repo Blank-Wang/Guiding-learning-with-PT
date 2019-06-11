@@ -1,0 +1,7 @@
+0.850	1.426	Cat
+0.876	1.579	Speech
+4.283	4.833	Cat
+4.871	5.408	Speech
+6.150	7.524	Alarm_bell_ringing
+7.806	9.072	Speech
+9.359	9.660	Speech
