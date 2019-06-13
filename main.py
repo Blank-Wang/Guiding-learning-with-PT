@@ -23,9 +23,12 @@ def supervised_train(task_name,sed_model_name,augmentation):
 	""""
 	Training with only weakly-supervised learning
 	Args:
-		task_name:	the name of the task
-		sed_model_name:	the name of the model
-		augmentation:	whether to add Gaussian noise Layer
+		task_name: string
+			the name of the task
+		sed_model_name:	string
+			the name of the model
+		augmentation:	bool
+			whether to add Gaussian noise Layer
 	Return:
 
 	"""
@@ -60,10 +63,14 @@ def semi_train(task_name,sed_model_name,at_model_name,augmentation):
 	""""
 	Training with semi-supervised learning (Guiding learning)
 	Args:
-		task_name:      the name of the task
-                sed_model_name: the name of the the PS-model
-		at_model_name: the name of the the PT-model
-                augmentation:   whether to add Gaussian noise to the input of the PT-model
+		task_name: string
+			the name of the task
+                sed_model_name: string
+			the name of the the PS-model
+		at_model_name: string
+			the name of the the PT-model
+                augmentation: bool
+			whether to add Gaussian noise to the input of the PT-model
 	Return:
 
         """
@@ -98,7 +105,7 @@ def semi_train(task_name,sed_model_name,at_model_name,augmentation):
 	train_sed.train(models)
 
 	#copy the final model to the PT-model dir from the PS-model dir
-	shutil.copyfile(train_sed.best_model,train_at.best_model) 
+	shutil.copyfile(train_sed.best_model_path,train_at.best_model_path) 
 
 	#predict results for validation set and test set (the PT-model)
 	LOG.info('------------result of %s------------'%at_model_name)
@@ -115,8 +122,10 @@ def test(task_name,model_name):
 	Test with prepared model dir.
 	The format of the model dir must be consistent with the required format.
 	Args:
-		task_name:      the name of the task
-		model_name: the name of the model
+		task_name: string
+			the name of the task
+		model_name: string
+			the name of the model
 	Return:
 	
         """
@@ -129,11 +138,13 @@ def test(task_name,model_name):
 
 def bool_convert(value):
 	""""
-	Convert a string in [true,True,false,False] to a boolean type value
+	Convert a string to a boolean type value
 	Args:
-		value:      the string to convert
+		value: string in ['true','True','false','False']
+			the string to convert
 	Return:
-		rvalue:	a boolean type value
+		rvalue: bool
+			a bool type value
 
 	"""
 	if value=='true' or value=='True':
