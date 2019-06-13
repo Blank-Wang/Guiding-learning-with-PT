@@ -537,7 +537,7 @@ class attend_cnn(object):
 			detection_out=concatenate(detection_outs,axis=-1)
 
 			if test_mode:
-				return audio_tag_out,detection_out
+				return [audio_tag_out,detection_out]
 			return audio_tag_out
 	
 		return create_model
@@ -574,7 +574,7 @@ class attend_cnn(object):
 		#get the output of the model
 		out=creat_model(inputs,mode=='sed')
 		#construct the model
-		model=Model(inputs,outs)
+		model=Model(inputs,out)
 
 		#load the model from file or object
 		if pre_model is not None:

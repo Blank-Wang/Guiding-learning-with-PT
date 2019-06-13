@@ -182,7 +182,7 @@ class trainer(object):
 			if not data_set in preds:
 		
 				model=self.model_struct.get_model(
-					model=best_model_path,
+					pre_model=best_model_path,
 					mode=mode)
 				preds=model.predict(data[0],batch_size=data_loader.batch_size)
 			else:
@@ -191,7 +191,7 @@ class trainer(object):
 		else:
 			if not data_set in preds:
 				model=self.model_struct.get_model(
-					model=best_model_path,
+					pre_model=best_model_path,
 					mode=mode)
 			#model.summary()
 				preds=model.predict(data[0],batch_size=data_loader.batch_size)
