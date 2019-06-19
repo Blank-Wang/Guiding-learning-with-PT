@@ -37,8 +37,6 @@ class data_loader(object):
 			get_test: Get the file list and the groundtruths of the test set.
 			count_disentangle: Count the coefficient for the DF dimension per class.
 			count_win_len_per_class: Count a group of adaptive window sizes for the median filters.
-			set_semi_parameter: Set hyper-parameters for GL.
-			set_ep_per_epochs: Set ep_per_epochs.
 			generator_train: Generate a generator for training.
 			generator_vali: Generate data from vali_lst.
 			generator_test: Generate data from test_lst.
@@ -97,14 +95,15 @@ class data_loader(object):
 		self.dinsentangle_n=int(parameter_cfg['dinsentangle_n'])
 		self.dinsentangle_m=float(parameter_cfg['dinsentangle_m'])
 		self.ratio_for_win_len=float(parameter_cfg['ratio_for_win_len'])
+		self.ep_per_epochs=float(parameter_cfg['ep_per_epochs'])
+		self.exponent=float(parameter_cfg['exponent'])
+		self.start_epoch=int(parameter_cfg['start_epoch'])
 
 		assert'events' in config.sections()
 		event_cfg=config['events']
 		
 		self.events=event_cfg['events'].split(',')
 		self.CLASS=len(self.events)
-		#set default value of ep_per_epochs
-		self.ep_per_epochs=1			
 
 	def read_lst(self,lst):
 		""""
@@ -242,30 +241,7 @@ class data_loader(object):
 				out[-1]=1
 		return out
 		
-	def set_semi_parameter(self,exponent,start_epoch):
-		""""
-		Set hyper-parameters for GL.
-                Args:
-			exponent: float
-				the exponential decay factor used for the weight of the semi-supervised losse of the PT-model
-			start_epoch: integer
-				after start_epoch epochs, the semi-supervised losse of the PT-model are taken into account
-                Return:
 
-                """
-		self.exponent=exponent
-		self.start_epoch=start_epoch
-
-	def set_ep_per_epochs(self,ep_per_epochs):
-		""""
-		Set ep_per_epochs.
-		Args:
-			ep_per_epochs: float
-				at every epoch, ep_per_epochs*100% of the training data is taken to train
-		Return:
-
-		"""
-		self.ep_per_epochs=ep_per_epochs
 	
 	def generator_train(self):
 		""""
