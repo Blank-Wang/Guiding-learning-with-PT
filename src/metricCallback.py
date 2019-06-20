@@ -301,15 +301,15 @@ class metricCallback(keras.callbacks.Callback):
 			LOG.info('[ epoch %d ,sed f1 : %f , at f1 : %f ] %s'
 				%(epoch,logs['f1_val'],pt_f1,is_best))
 		else:
-			LOG.info('[ epoch %d ,%s f1 : %f ] %s'
-				%(epoch,mode,logs['f1_val'],is_best))
+			LOG.info('[ epoch %d, f1 : %f ] %s'
+				%(epoch,logs['f1_val'],is_best))
 
 		#learning rate decays every epoch_of_decay epochs
 		if epoch>0 and epoch%self.epoch_of_decay==0:
 			self.learning_rate*=self.decay_rate
 			opt=self.get_opt(self.learning_rate)
 			LOG.info('[ epoch %d ,learning rate decay to %f ]'%(
-					epoch,learning_rate))
+					epoch,self.learning_rate))
 			loss=self.get_loss()
 			#recompile the model with decreased learning rate
 			self.model.compile(optimizer=opt,loss=loss)

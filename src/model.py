@@ -178,6 +178,7 @@ class attend_cnn(object):
 		assert model_name in config.sections()
 		model_conf=config[model_name]
 
+		self.pooling_mode=model_conf['pooling_mode']
 
 		filters=model_conf['filters'].split(',')
 		conv_num=model_conf['conv_num'].split(',')
@@ -429,6 +430,7 @@ class attend_cnn(object):
 		top_dim=self.top_dim
 		with_rnn=self.with_rnn
 		md=self.model_name
+		pooling_mode=self.pooling_mode
 		h_dim=None
 		grus=[]
 
@@ -497,37 +499,62 @@ class attend_cnn(object):
 	
 			audio_tag_outs=[]
 			detection_outs=[]	
-
+			
 			for c in range(CLASS):
 				#kc
 				k=hiddens[c]
-	
 				#x_c={x_c1,...,x_cT}
 				x_c=Lambda(lambda x : x[:,:,:k])(X)
 
-				#W x x_c
-				w_x=attens[c](x_c)
-				w_x=Reshape((top_len,1))(w_x)
-
-				#attention output for frame-level prediction
-				detection_out=Activation('sigmoid')(w_x)
-
-				#a_c=softmax((W x x_c)/d)
-				w_x=Reshape((top_len,))(w_x)
-				w_x_d=Lambda(lambda x:x/k)(w_x)
-				a=Activation('softmax')(w_x_d)
-				a=Reshape((top_len,1))(a)
-
-				#h_c=\sum (a_c x x_c)
-				h=multiply([a,x_c])
-				h=sumLayer(1,False)(h)
-				h=Reshape((k,))(h)
+				#different pooling mode
+				if pooling_mode=='GAP' or pooling_mode=='GMP':
+					if pooling_mode=='GAP':
+						h=GlobalAveragePooling1D()(x_c)	
+					else:
+						h=GlobalMaxPooling1D()(x_c)
+					detection_out=TimeDistributed(
+								denses[c])(x_c)
+					detection_out=Activation('sigmoid')(
+								detection_out)
+				elif pooling_mode=='ATP':
+					w_x=attens[0](X)
+					w_x=Reshape((top_len,))(w_x)
+					w_x_d=Lambda(lambda x:x/top_dim)(w_x)
+					a=Activation('softmax')(w_x_d)
+					a=Reshape((top_len,1))(a)
+					h=multiply([a,X])
+					h=sumLayer(1,False)(h)
+					h=Reshape((top_dim,))(h)
+					h=Lambda(lambda x : x[:,:k])(h)
+					h=Reshape((k,))(h)
+					detection_out=TimeDistributed(
+								denses[c])(x_c)
+					detection_out=Activation('sigmoid')(
+						detection_out)
+						
+				elif pooling_mode=='cATP':
+					#W x x_c
+					w_x=attens[c](x_c)
+					w_x=Reshape((top_len,1))(w_x)
+					#attention output for frame-level prediction
+					detection_out=Activation('sigmoid')(w_x)
+					#a_c=softmax((W x x_c)/d)
+					w_x=Reshape((top_len,))(w_x)
+					w_x_d=Lambda(lambda x:x/k)(w_x)
+					a=Activation('softmax')(w_x_d)
+					a=Reshape((top_len,1))(a)
+					#h_c=\sum (a_c x x_c)
+					h=multiply([a,x_c])
+					h=sumLayer(1,False)(h)
+					h=Reshape((k,))(h)
 
 				#output for clip-level prediction
 				audio_tag_out=denses[c](h)
 				audio_tag_out=Activation('sigmoid')(audio_tag_out)
 
-				detection_out=Lambda(lambda x:x,name='%s_frame_output_%d'%(md,c))(detection_out)
+				detection_out=Lambda(lambda x:x,
+					name='%s_frame_output_%d'%(md,c))(
+								detection_out)
 				
 				detection_outs+=[detection_out]
 				audio_tag_outs+=[audio_tag_out]

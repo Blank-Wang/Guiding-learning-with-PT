@@ -404,7 +404,8 @@ class utils(object):
 					frame_pred[:,j]*=0
 				else:
 					#using median_filter on prediction for the first post-processing
-					median_filter(frame_pred[:,j],(win_lens[j]))	
+					frame_pred[:,j]=median_filter(
+                                            frame_pred[:,j],(win_lens[j]))	
 			#making frame-level decision
 			frame_decisions=dcase_util.data.ProbabilityEncoder()\
 				.binarization(
